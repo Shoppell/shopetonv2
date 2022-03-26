@@ -1,0 +1,94 @@
+
+
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block content %}
+<br>
+    <div class="container" style="margin-top: 50px">
+      <h3 style="font-family:yekan;text-align:center">
+     {{ sup.name }}
+    </h3>
+     <hr style="border: solid 2px #006466;">
+    </div>
+
+                    <br>
+            <section class="page-section bg-dark text-white">
+            <div class="container px-4 px-lg-5 text-center">
+                <br>
+            
+            </div>
+        </section>        
+    <div class="container-fluid p-0">
+                <div class="row g-0" style="margin-right:0px;">
+
+                      {% for x in sup.categories.all %}
+
+                    <div class="col-lg-4 col-sm-6" style="padding: 0px">
+                       
+                           <a href="{% url 'category' x.pk %}">
+                            <img class="img-fluid" src="{{ x.photo.url }}" alt="..."  style="width: 738px;height: 430px;">
+                    <div style="font-family: yekan;font-size: 24px;color:white" class="centered">{{ x.name }}</div>
+                        </a>
+                    </div>
+                    {% endfor %}
+
+
+
+                </div>
+            </div>
+    <section class="page-section bg-dark text-white">
+            <div class="container px-4 px-lg-5 text-center">
+                <br>
+                    <br>
+            </div>
+        </section>
+        
+<style>
+    .container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+
+
+{% endblock %}
+
+

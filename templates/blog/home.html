@@ -1,0 +1,1798 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% load static %}
+
+<section id="hero" class="d-flex align-items-center" >
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
+          <h1 style="font-family:yekan;font-size: 65px;">شاپتون</h1>
+      
+         <hr style="border: solid 2px orange;width: 80%;margin-top: 5%;">
+          <h2 ><span style="color: white;margin-right: 10px;font-family:yekan">فروشگاه/سایت اختصاصی خودت رو داشته باش</span></h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a style="font-family:yekan" href="{% url 'add_shop' %}" class="btn-get-started scrollto font_yekan">همین حالا شروع کن
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+              </svg>
+            
+            </a>
+            <a href="{% url 'about' %}" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span style="font-family:yekan" >آشنایی با ما
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-boxes" viewBox="0 0 16 16">
+                <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z"/>
+              </svg>
+            </span></a>
+          </div>
+        </div>
+      
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="{% static 'img/sale1.gif' %}" >
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+  
+    <section class="page-add" style="margin:0px">
+        <div class="container">
+            <h3 style="font-family: yekan;text-align: center;font-family: yekan;"> خدمات ما</h3>
+            <hr style="border: solid 2px #006466;">
+        </div>
+    </section> 
+    
+ 
+ <div class="container-fluid mb-5">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services settings">
+                    <div class="icon"> <img src="{% static 'img/s1.png' %}"> </div>
+                    <h4 style="font-family:yekan">
+                        سایت شخصی سازی شده
+                    </h4>
+                    <hr>
+                    <p style="font-family:vazir">
+                        ساخت سایت شخصی
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services speedup">
+                    <div class="icon"> <img src="{% static 'img/s2.png' %}"> </div>
+                <h4 style="font-family:yekan">
+                        سریع</h4>
+                        <hr>
+                  <p style="font-family:vazir">
+                        در کم تر از 1 دقیقه سایتت رو بساز
+                        </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services privacy">
+                    <div class="icon">  <img src="{% static 'img/s3.png' %}"></div>
+                  <h4 style="font-family:yekan">
+                        امنیت</h4>
+                        <hr>
+                    <p style="font-family:vazir">
+                        فروش امن رو تجربه کن </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services backups">
+                    <div class="icon">  <img src="{% static 'img/s6.png' %}"> </div>
+               <h4 style="font-family:yekan">
+                        بدون کارمزد</h4>
+                        <hr>
+                   <p style="font-family:vazir">فروش کالا بدون دریافت کارمزد
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services ssl">
+                    <div class="icon">  <img src="{% static 'img/s5.png' %}"> </div>
+                 <h4 style="font-family:yekan">
+                        پشتیبانی </h4>
+                        <hr>
+                   <p style="font-family:vazir">
+                        پشتیبانی فنی 24 ساعته</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services database">
+                    <div class="icon">  <img src="{% static 'img/s4.png' %}"> </div>
+                           <h4 style="font-family:yekan">
+                        اضافه کردن کالا </h4>
+                        <hr>
+                          <p style="font-family:vazir">
+                        بدون محدودیت
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+            <h3 style="font-family: yekan">به اینستاگرام ما سر زده ایی؟</h3>
+            <hr style="border: solid 2px orange;">
+            <p style="font-family: yekan;font-size: 18px;">پیگیر ما باش</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="https://instagram.com/shopeton.ir" style="font-family: yekan">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+              </svg>
+              دیدن
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="page-add" style="margin-bottom: 0px;">
+        <div class="container">
+            <h3 style="font-family: yekan;text-align: right">
+          کالا ها  
+            </h3>
+        <hr style="border: solid 2px #006466;">
+        </div>
+    </section>
+         
+     <div class="logo-section spad" style="padding-top: 0px;">
+        <div class="logo-items owl-carousel">
+
+ {% for x in all_product %}
+                   
+               <div class="card">
+                            
+                 <a class="img-card" href="{% url 'one_product' x.pk %}">
+                  <div id="yourContainer" style="position: relative;">
+                    <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
+                    <div class="bottom-left" style="background-color:#FF4742;border-radius:15px;padding:1%;color:white;margin-bottom: 30px;
+                        padding: 0px;
+                      ">
+                      {{ x.persian_off }}% 
+                    </div>
+
+                  </div>
+                      
+                          </a>
+                <div class="product-text" >
+          
+                  <h6 style="font-family: yekan;text-align:right;margin-right: 5%;font-size: 18px;">{{ x.name }}</h6>
+                  <del style="color: grey;font-family: vazir;text-align:left;margin-left: 5%;font-size: 14px;">{{ x.price_comma }}تومان</del>
+                  <p style="color: green;font-family: vazir;text-align:left;font-size:18px;font-weight: 700;margin-bottom:0px;margin-left: 5%;">{{ x.last_comma }}تومان</p>
+
+                </div>
+                         
+            </div>
+             
+ {% endfor %}
+                
+        </div>
+    </div>
+    
+    
+    <section class="page-add" style="margin-bottom: 0px;">
+        <div class="container">
+            <h3 style="font-family: yekan;text-align: right">
+               فروشگاه ها</h3>
+        <hr style="border: solid 2px #006466;">
+        </div>
+    </section> 
+    
+
+  <div class="logo-section spad" style="padding-top: 0px;">
+        <div class="logo-items owl-carousel">
+
+ {% for x in all_shop %}
+
+                        <div class="card">
+                            <a class="img-card" href="{% url 'shop' x.slug %}">
+                                  <div id="yourContainer">
+                            <img src="{{ x.image_head1.url }}" style="border-radius:15px;width:90%;height:90%;margin: 5%;" />
+                            </div>
+                               {% if x.verified %}
+                                 <div class="top-left" style="background-color:white;border-radius:15px;padding:1%;color:white">
+                                        <svg style="color: cornflowerblue" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                          <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+                                        </svg>               
+                                  </div>
+
+                                {% endif %}
+  
+                        </a>
+                         <div class="product-text">
+                            <h6 style="font-family: yekan;text-align:center;font-size: 18px;margin-right: 5%;">{{ x.title }}</h6>
+                            <br>
+                         </div>
+                        
+                        </div>
+             
+ {% endfor %}
+                
+        </div>
+    </div>
+    
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+            <h3 style="font-family: yekan">ثبت نام کن</h3>
+            <hr style="border: solid 2px orange;">
+            <p style="font-family: yekan;font-size: 18px;">برای کامنت گذاشتن و خرید ثبت نام کن</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="{% url 'register' %}" style="font-family: yekan">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
+                <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+              </svg>
+              ثبت نام/ورود</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    
+{% if off %}
+<section class="page-add" style="margin-bottom:0px">
+        <div class="container">
+            <h3 style="font-family: yekan;text-align: right">
+            کالاهای پر تخفیف
+            </h3>
+            <hr style="border: solid 2px #006466;">
+        </div>
+    </section>
+
+<div class="logo-section spad" style="padding-top: 0px;">
+        <div class="logo-items owl-carousel">
+
+ {% for x in off %}
+                   
+                        
+                        <div class="card">
+                            <a class="img-card" href="{% url 'one_product' x.pk %}">
+                              <div id="yourContainer" style="position: relative;">
+                                <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
+                                <div class="bottom-left" style="background-color:#FF4742;border-radius:15px;padding:1%;color:white;margin-bottom: 30px;
+                                    padding: 0px;
+                                  ">
+                                  {{ x.persian_off }}% 
+                                </div>
+                              </div>
+                          </a>
+                          <div class="product-text">
+               
+                              <h6 style="font-family: yekan;text-align:right;margin-right: 5%;font-size: 18px;">{{ x.name }}</h6>
+                              <del style="color: grey;font-family: vazir;text-align:left;margin-left: 5%;font-size: 14px;">{{ x.price_comma }}تومان</del>
+                              <p style="color: green;font-family: vazir;text-align:left;font-size:18px;font-weight: 700;margin-bottom:0px;margin-left: 5%;">{{ x.last_comma }}تومان</p>
+                        </div>
+                        
+                      </div>
+            
+ {% endfor %}
+                
+        </div>
+    </div>
+
+{% endif %}
+   
+{% if scategory %}
+<section class="page-add" style="margin-bottom:0px">
+        <div class="container">
+            <h2 style="font-family: yekan;text-align: right">
+            دسته ها
+            </h2>
+            <hr style="border: solid 2px #006466;">
+        </div>
+    </section>
+
+<div class="logo-section spad" style="padding-top: 0px;">
+        <div class="logo-items owl-carousel">
+
+ {% for x in scategory %}
+                   
+                <div class="card">
+                  <a class="img-card" href="{% url 'sup-category' x.pk %}">
+                    <div id="yourContainer">
+                        <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%;border: none;" class="img-thumbnail" />
+                    </div>
+                  </a>
+                <h6 style="font-family: yekan;text-align:center;margin-bottom: 10px;">{{ x.name }}</h6>
+                 
+                </div>
+             
+ {% endfor %}
+                
+        </div>
+    </div>
+
+{% endif %}
+
+<section id="cta" class="cta">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-9 text-center text-lg-start">
+        <h3 style="font-family: yekan">ارتباط با ما</h3>
+        <hr style="border: solid 2px orange;">
+        <p style="font-family: yekan;font-size: 18px;">
+          منتظر نظرات و پیشنهادات هستیم</p>
+      </div>
+      <div class="col-lg-3 cta-btn-container text-center">
+        <a class="cta-btn align-middle" href="{% url 'contact' %}" style="font-family: yekan">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+          </svg>
+          ارتباط با ما</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% if rare %}
+<section class="page-add" style="margin-bottom:0px">
+        <div class="container">
+            <h3 style="font-family: yekan;text-align: right">
+            کالاهای ویژه
+            </h3>
+            <hr style="border: solid 2px #006466;">
+        </div>
+    </section>
+
+<div class="logo-section spad" style="padding-top: 0px;">
+        <div class="logo-items owl-carousel">
+
+ {% for x in rare %}
+ <div class="card">
+  <a class="img-card" href="{% url 'one_product' x.pk %}">
+    <div id="yourContainer" style="position: relative;">
+      <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
+      <div class="bottom-left" style="background-color:#FF4742;border-radius:15px;padding:1%;color:white;margin-bottom: 30px;
+          padding: 0px;
+        ">
+        {{ x.persian_off }}% 
+      </div>
+    </div>
+</a>
+<div class="product-text">
+
+    <h6 style="font-family: yekan;text-align:right;margin-right: 5%;font-size: 18px;">{{ x.name }}</h6>
+    <del style="color: grey;font-family: vazir;text-align:left;margin-left: 5%;font-size: 14px;">{{ x.price_comma }}تومان</del>
+    <p style="color: green;font-family: vazir;text-align:left;font-size:18px;font-weight: 700;margin-bottom:0px;margin-left: 5%;">{{ x.last_comma }}تومان</p>
+</div>
+
+</div>
+             
+ {% endfor %}
+                
+        </div>
+    </div>
+
+
+{% endif %}
+
+
+{% if hot %}
+
+<section class="page-add" style="margin-bottom:0px">
+        <div class="container">
+            <h3 style="font-family: yekan;text-align: right">
+            کالاهای داغ
+            </h3>
+            <hr style="border: solid 2px #006466;">
+        </div>
+    </section>
+
+<div class="logo-section spad" style="padding-top: 0px;">
+        <div class="logo-items owl-carousel">
+
+ {% for x in hot %}
+                                    
+ <div class="card">
+  <a class="img-card" href="{% url 'one_product' x.pk %}">
+    <div id="yourContainer" style="position: relative;">
+      <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
+      <div class="bottom-left" style="background-color:#FF4742;border-radius:15px;padding:1%;color:white;margin-bottom: 30px;
+          padding: 0px;
+        ">
+        {{ x.persian_off }}% 
+      </div>
+    </div>
+</a>
+<div class="product-text">
+
+    <h6 style="font-family: yekan;text-align:right;margin-right: 5%;font-size: 18px;">{{ x.name }}</h6>
+    <del style="color: grey;font-family: vazir;text-align:left;margin-left: 5%;font-size: 14px;">{{ x.price_comma }}تومان</del>
+    <p style="color: green;font-family: vazir;text-align:left;font-size:18px;font-weight: 700;margin-bottom:0px;margin-left: 5%;">{{ x.last_comma }}تومان</p>
+</div>
+
+</div>
+             
+ {% endfor %}
+                
+        </div>
+    </div>
+
+{% endif %}
+
+<br>
+<br>
+
+<section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+            <h3 style="font-family: yekan">فروشگاهت رو ساختی؟</h3>
+            <hr style="border: solid 2px orange;">
+            <p style="font-family: yekan">همین الان بسازش</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="{% url 'register' %}" style="font-family: yekan">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+              </svg>
+              ساخت فروشگاه</a>
+          </div>
+        </div>
+
+      </div>
+</section>    
+    
+
+    
+    
+     
+<section class="page-add" style="margin-bottom:0px">
+        <div class="container">
+            <h3 style="font-family: yekan;text-align: center">
+                از کجا شروع کنم؟</h3>
+                <hr style="border: solid 2px #006466;">
+        </div>
+    </section>
+
+  
+<div class="container bootdey">
+<div class="row gutters">
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+<div class="card" style="border:none">
+<div class="card-body" >
+<!-- Timeline start -->
+<div class="timeline">
+	<div class="timeline-row">
+
+		<div class="timeline-dot fb-bg"></div>
+		<div class="timeline-content">
+		<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+  <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/>
+  <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+</svg>
+			<h4 style="color: white;font-family: yekan;text-align: right">ثبت نام کن</h4>
+      <hr style="border: solid 2px white;">
+			<p style="color: white;font-family: vazir;text-align: right">از طریق منوی صفحه وارد صفحه ی ثبت نام شو و ثبت نام کن</p>
+
+		</div>
+	</div>
+	<div class="timeline-row">
+
+		<div class="timeline-dot green-one-bg"></div>
+		<div class="timeline-content green-one">
+	<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
+  <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z"/>
+</svg>
+				<h4 style="color: white;font-family: yekan;text-align: right">فروشگاهت رو بساز</h4>
+        <hr style="border: solid 2px white;">
+			<p style="color: white;font-family: vazir;text-align: right">ساخت فروشگاه رو از منو انتخاب و پر کن فرم رو</p>
+
+		</div>
+	</div>
+
+
+	<div class="timeline-row">
+
+		<div class="timeline-dot green-four-bg"></div>
+		<div class="timeline-content green-four">
+			<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+  <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+</svg>
+					<h4 style="color: white;font-family: yekan;text-align: right">محصولاتت رو اضافه کن</h4>
+          <hr style="border: solid 2px white;">
+			<p style="color: white;font-family: vazir;text-align: right">بعد از ساخت فروشگاه روی ساخت محصول کلیک کن و پر کن فرم هارو</p>
+
+		</div>
+	</div>
+	<div class="timeline-row">
+
+		<div class="timeline-dot teal-bg"></div>
+		<div class="timeline-content teal">
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-watch" viewBox="0 0 16 16">
+  <path d="M8.5 5a.5.5 0 0 0-1 0v2.5H6a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V5z"/>
+  <path d="M5.667 16C4.747 16 4 15.254 4 14.333v-1.86A5.985 5.985 0 0 1 2 8c0-1.777.772-3.374 2-4.472V1.667C4 .747 4.746 0 5.667 0h4.666C11.253 0 12 .746 12 1.667v1.86a5.99 5.99 0 0 1 1.918 3.48.502.502 0 0 1 .582.493v1a.5.5 0 0 1-.582.493A5.99 5.99 0 0 1 12 12.473v1.86c0 .92-.746 1.667-1.667 1.667H5.667zM13 8A5 5 0 1 0 3 8a5 5 0 0 0 10 0z"/>
+</svg>
+					<h4 style="color: white;font-family: yekan;text-align: right">تموم شد</h4>
+		
+
+		</div>
+	</div>
+
+</div>
+<!-- Timeline end -->
+</div>
+</div>
+</div>
+</div>
+</div>
+
+     <br>
+     <br>
+
+
+         <section class="page-add" style="margin-bottom:0px">
+        <div class="container">
+            <h3 style="font-family: yekan;text-align: center">
+             سوالات متداول
+            </h3>
+            <hr style="border: solid 2px #006466;">
+        </div>
+    </section>
+    
+    
+<div class="container" style="font-family:vazir;text-align:right">
+<div id="accordion"  style="padding: 0px;">
+      <div class="card border-0">
+          <div class="card-header p-0 border-0" id="heading-239">
+          <button class="btn btn-link accordion-title border-0 collapse" data-toggle="collapse" data-target="#collapse-239" aria-expanded="true" aria-controls="#collapse-239"><i class="fas fa-minus text-center d-flex align-items-center justify-content-center h-100"></i>lorem header  1 </button>
+        </div>
+  
+    </div>
+            <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;" >
+                    <div class="card-header p-0 border-0" id="heading-240">
+                        <button style="text-decoration: none;color: #006466;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-240" aria-expanded="false" aria-controls="#collapse-240">
+
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                      </svg>
+واریز پول به چه صورت است؟                       </button>
+                    </div>
+                    <div id="collapse-240" class="collapse " aria-labelledby="heading-240" data-parent="#accordion">
+                        <div class="card-body accordion-body">
+                            
+                            <p style="font-family:vazir">
+                                بعد از تحویل کالا آنی واریز میشود
+                                
+                        </div>
+                    </div>
+                </div>
+                            <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="card-header p-0 border-0" id="heading-241">
+                  <button style="text-decoration: none;;color: #006466;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-241" aria-expanded="false" aria-controls="#collapse-241">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                      </svg> هزینه ی ساخت فروشگاه؟                    
+                  </button>
+                    </div>
+                    <div id="collapse-241" class="collapse " aria-labelledby="heading-241" data-parent="#accordion">
+                        <div class="card-body accordion-body">
+                          <p style="font-family:vazir">
+                                رایگان
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                            <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="card-header p-0 border-0" id="heading-242">
+                      <button  style="text-decoration: none;;color: #006466;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-242" aria-expanded="false" aria-controls="#collapse-242">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                      </svg>   امکان وجود چند فروشگاه؟     
+                  </button>
+                    </div>
+                    <div id="collapse-242" class="collapse " aria-labelledby="heading-242" data-parent="#accordion">
+                        <div class="card-body accordion-body">
+                             <p style="font-family:vazir">
+                               خیر امکانش نیست
+                               </p>
+                        </div>
+                    </div>
+                </div>
+                            <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="card-header p-0 border-0" id="heading-243">
+                      <button style="text-decoration: none;color: #006466;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-243" aria-expanded="false" aria-controls="#collapse-243">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                          </svg>  چه تعداد کالا میتوان آپلود کرد؟           
+                      </button>
+                    </div>
+                    <div id="collapse-243" class="collapse " aria-labelledby="heading-243" data-parent="#accordion">
+                        <div class="card-body accordion-body">
+                              <p style="font-family:vazir">
+                                بی شمار
+                           
+                           </p>
+                        </div>
+                    </div>
+                </div>
+                            <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="card-header p-0 border-0" id="heading-244">
+                        <button style="text-decoration: none;color: #006466;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-244" aria-expanded="false" aria-controls="#collapse-244">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+      </svg>
+         امکان تبلیغ برای فروش حضوری هست؟      
+                 </button>
+                    </div>
+                    <div id="collapse-244" class="collapse " aria-labelledby="heading-244" data-parent="#accordion">
+                        <div class="card-body accordion-body">
+                             <p style="font-family:vazir">
+                              بله 
+                                
+                         </p>
+                        </div>
+                    </div>
+                </div>
+                            <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="card-header p-0 border-0" id="heading-245">
+                        <button style="text-decoration: none;color: #006466;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-245" aria-expanded="false" aria-controls="#collapse-245">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+</svg>  امکان داشتن لینک است؟                       </button>
+                    </div>
+                    <div id="collapse-245" class="collapse " aria-labelledby="heading-245" data-parent="#accordion">
+                        <div class="card-body accordion-body">
+                              <p style="font-family:vazir">
+                                حتما این لینک ها عکس و مشخصات فروشگاه شما رو هم نشون میدن
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+  
+</div>
+
+
+<section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+            <h3 style="font-family: yekan">درباره ی ما؟</h3>
+            <hr style="border: solid 2px orange;">
+            <p style="font-family: yekan">بیشتر بدون</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="{% url 'about' %}" style="font-family: yekan">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-boxes" viewBox="0 0 16 16">
+                <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z"/>
+              </svg>
+              درباره ی ما</a>
+          </div>
+        </div>
+
+      </div>
+</section>    
+    
+
+         <section class="page-add" style="margin:0px">
+        <div class="container">
+            <h3 style="font-family: yekan;text-align: right">
+                گالری
+            </h3>
+            <hr style="border: solid 2px #006466;">
+        </div>
+    </section>
+
+    <div class="logo-section spad">
+        <div class="logo-items owl-carousel">
+
+                <img src="{% static 'img/banner/banner4.jpg' %}"  alt="" style="width:250px;height:200px;border-radius: 15px" >
+
+
+                <img src="{% static 'img/banner/banner5.jpg' %}"  alt="" style="width:250px;height:200px;border-radius: 15px">
+
+
+                <img src="{% static 'img/banner/banner6.jpg' %}"  alt="" style="width:250px;height:200px;border-radius: 15px">
+
+
+                <img src="{% static 'img/banner/banner7.jpg' %}"  alt="" style="width:250px;height:200px;border-radius: 15px">
+
+
+                <img src="{% static 'img/banner/banner8.jpg' %}"  alt="" style="width:250px;height:200px;border-radius: 15px">
+
+        </div>
+    </div>
+
+<style>
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+}
+
+
+.why-us .content {
+  padding: 60px 100px 0 100px;
+}
+
+.why-us .content h3 {
+  font-weight: 400;
+  font-size: 34px;
+  color: #006466;
+}
+
+.why-us .content h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.why-us .content p {
+  font-size: 15px;
+  color: #848484;
+}
+
+.why-us .img {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.why-us .accordion-list {
+  padding: 0 100px 60px 100px;
+}
+
+.why-us .accordion-list ul {
+  padding: 0;
+  list-style: none;
+}
+
+.why-us .accordion-list li + li {
+  margin-top: 15px;
+}
+
+.why-us .accordion-list li {
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.why-us .accordion-list a {
+  display: block;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  padding-right: 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.why-us .accordion-list span {
+  color: #f77f00;
+  font-weight: 600;
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.why-us .accordion-list i {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.why-us .accordion-list p {
+  margin-bottom: 0;
+  padding: 10px 0 0 0;
+}
+
+.why-us .accordion-list .icon-show {
+  display: none;
+}
+
+.why-us .accordion-list a.collapsed {
+  color: #343a40;
+}
+
+.why-us .accordion-list a.collapsed:hover {
+  color: #f77f00;
+}
+
+.why-us .accordion-list a.collapsed .icon-show {
+  display: inline-block;
+}
+
+.why-us .accordion-list a.collapsed .icon-close {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .why-us .content, .why-us .accordion-list {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .why-us .img {
+    min-height: 400px;
+  }
+  .why-us .content {
+    padding-top: 30px;
+  }
+  .why-us .accordion-list {
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .why-us .img {
+    min-height: 200px;
+  }
+}
+
+.about .content h3 {
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  padding-left: 28px;
+  position: relative;
+}
+
+.about .content ul li + li {
+  margin-top: 10px;
+}
+
+.about .content ul i {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 20px;
+  color: #f77f00;
+  line-height: 1;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+
+.about .content .btn-learn-more {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 4px;
+  transition: 0.3s;
+  line-height: 1;
+  color: #f77f00;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  margin-top: 6px;
+  border: 2px solid #f77f00;
+}
+
+.about .content .btn-learn-more:hover {
+  background: #f77f00;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.faq .faq-list {
+  padding: 0 100px;
+}
+
+.faq .faq-list ul {
+  padding: 0;
+  list-style: none;
+}
+
+.faq .faq-list li + li {
+  margin-top: 15px;
+}
+
+.faq .faq-list li {
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+  position: relative;
+}
+
+.faq .faq-list a {
+  display: block;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  padding: 0 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.faq .faq-list .icon-help {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  left: 20px;
+  color: #f77f00;
+}
+
+.faq .faq-list .icon-show, .faq .faq-list .icon-close {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.faq .faq-list p {
+  margin-bottom: 0;
+  padding: 10px 0 0 0;
+}
+
+.faq .faq-list .icon-show {
+  display: none;
+}
+
+.faq .faq-list a.collapsed {
+  color: #006466;
+  transition: 0.3s;
+}
+
+.faq .faq-list a.collapsed:hover {
+  color: #f77f00;
+}
+
+.faq .faq-list a.collapsed .icon-show {
+  display: inline-block;
+}
+
+.faq .faq-list a.collapsed .icon-close {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .faq .faq-list {
+    padding: 0;
+  }
+}
+
+
+.cta {
+  background: #006466;
+  background-size: cover;
+  padding: 120px 0;
+}
+
+.cta h3 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.cta p {
+  color: #fff;
+}
+
+.cta .cta-btn {
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.cta .cta-btn:hover {
+  background: #f77f00;
+  border: 2px solid #f77f00;
+}
+
+@media (max-width: 1024px) {
+  .cta {
+    background-attachment: scroll;
+  }
+}
+
+@media (min-width: 769px) {
+  .cta .cta-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+
+#hero {
+  width: 100%;
+  height: 80vh;
+  background: #006466;
+}
+
+#hero .container {
+  padding-top: 72px;
+}
+
+#hero h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+}
+
+#hero h2 {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 50px;
+  font-size: 24px;
+}
+
+#hero .btn-get-started {
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px 11px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px 0 0 0;
+  color: #fff;
+  background: #f77f00;
+}
+
+#hero .btn-get-started:hover {
+  background: #ED5107;
+}
+
+#hero .btn-watch-video {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  margin: 10px 0 0 25px;
+  color: #fff;
+  line-height: 1;
+}
+
+#hero .btn-watch-video i {
+  line-height: 0;
+  color: #fff;
+  font-size: 32px;
+  transition: 0.3s;
+  margin-right: 8px;
+}
+
+#hero .btn-watch-video:hover i {
+  color: #f77f00;
+}
+
+#hero .animated {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@media (max-width: 991px) {
+  #hero {
+    height: 100vh;
+    text-align: center;
+  }
+  #hero .animated {
+    -webkit-animation: none;
+    animation: none;
+  }
+  #hero .hero-img {
+    text-align: center;
+  }
+  #hero .hero-img img {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  #hero .hero-img img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  #hero .hero-img img {
+    width: 80%;
+  }
+  #hero .btn-get-started {
+    font-size: 16px;
+    padding: 10px 24px 11px 24px;
+  }
+}
+
+@-webkit-keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+.clock {
+  width: 20rem;
+  height: 20rem;
+  border: 7px solid #545271;
+  border-radius: 50%;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  -webkit-box-shadow: 0 20px 30px rgba(104,75,106,0.65);
+  -moz-box-shadow: 0 20px 30px rgba(104,75,106,0.65);
+  box-shadow: 0 20px 30px rgba(104,75,106,0.65);
+  background: #545271;
+}
+
+.outer-clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background: #fefefc;
+  -webkit-box-shadow: 0 20px 10px rgba(62,47,63,0.45);
+  -moz-box-shadow: 0 20px 10px rgba(62,47,63,0.45);
+  box-shadow: 0 20px 10px rgba(62,47,63,0.45);
+  overflow: hidden;
+}
+
+.outer-clock-face::after {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg)
+}
+
+.outer-clock-face::before,
+.outer-clock-face::after,
+.outer-clock-face .marking{
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: #b8b8c5;
+  z-index: 0;
+  left: 49%;
+}
+
+.outer-clock-face .marking {
+  background: #bdbdcb;
+  width: 3px;
+}
+
+.outer-clock-face .marking.marking-one {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  transform: rotate(30deg)
+}
+
+.outer-clock-face .marking.marking-two {
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  transform: rotate(60deg)
+}
+
+.outer-clock-face .marking.marking-three {
+  -webkit-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  transform: rotate(120deg)
+}
+
+.outer-clock-face .marking.marking-four {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  transform: rotate(150deg)
+}
+
+.inner-clock-face {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: #fefefc;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.inner-clock-face::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 18px;
+  margin-left: -9px;
+  margin-top: -6px;
+  background: #4d4b63;
+  z-index: 11;
+}
+
+.hand {
+  width: 50%;
+  right: 50%;
+  height: 6px;
+  background: #61afff;
+  position: absolute;
+  top: 50%;
+  border-radius: 6px;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hand.hour-hand {
+  width: 20%;
+  z-index: 3;
+}
+
+.hand.min-hand {
+  height: 3px;
+  z-index: 10;
+  width: 35%;
+}
+
+.hand.second-hand {
+  background: #ff5e5e;
+  width: 40%;
+}
+
+
+  [data-toggle="collapse"] i:before {  
+    content: "\f068";
+}
+  
+[data-toggle="collapse"].collapsed i:before {
+    content: "\f067";
+}
+#accordion {
+    .card-header{
+        margin-bottom: 8px;
+    }
+    .accordion-title{
+        position: relative;
+        display: block;
+        padding:8px 0 8px 50px;
+        background: #213744;
+        border-radius: 8px;
+        overflow: hidden;
+        text-decoration: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        width: 100%;
+        text-align: left;
+        transition: all .4s ease-in-out; 
+        i{
+            position: absolute;
+            width: 40px;
+            height: 100%;
+            left: 0;
+            top: 0;
+            color: #fff;
+            background: radial-gradient(rgba(#213744, .8), #213744);
+            text-align: center;
+            border-right: 1px solid transparent;
+        }
+        &:hover{
+            padding-left: 60px;
+            background: #213744;
+            color: #fff;
+            
+            i {
+                border-right: 1px solid #fff;
+            }
+        }
+    }
+    .accordion-body{
+        padding: 40px 55px;
+
+        
+        ul {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        
+        li {
+            padding-left: 1.2rem;
+            text-indent: -1.2rem;
+
+            &:before {
+                content: "\f10a";
+                padding-right: 5px;
+                font-family: "Flaticon";
+                font-size: 16px;
+                font-style: normal;
+                color: #213744;
+            }
+        }
+    }
+}
+
+#yourContainer {
+    /*width: 500px;*/
+    height: 250px;
+}
+
+#yourContainer img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu&display=swap');
+
+
+.box {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.our-services {
+    margin-top: 75px;
+    padding-bottom: 30px;
+    padding: 0 60px;
+    min-height: 198px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: all .4s ease-in-out;
+    box-shadow: 0 0 25px 0 rgba(20, 27, 202, .17)
+}
+
+.our-services .icon {
+    margin-bottom: -21px;
+    transform: translateY(-50%);
+    text-align: center
+}
+
+.our-services:hover h4,
+.our-services:hover p {
+    color: #fff
+}
+
+.speedup:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #fb0054 0%, #f55b2a 100%)
+}
+
+.settings:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #34b5bf 0%, #210c59 100%)
+}
+
+.privacy:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #3615e7 0%, #44a2f6 100%)
+}
+
+.backups:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #fc6a0e 0%, #fdb642 100%)
+}
+
+.ssl:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #8d40fb 0%, #5a57fb 100%)
+}
+
+.database:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #27b88d 0%, #22dd73 100%)
+}
+
+
+
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Bottom left text */
+.bottom-left {
+  font-family: vazir;
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top left text */
+.top-left {
+  font-family: vazir;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  font-family: vazir;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  font-family: vazir;
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.timeline {
+    position: relative;
+    padding: 10px;
+    margin: 0 auto;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.timeline:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -1px;
+    border-right: 2px dashed #c4d2e2;
+    height: 100%;
+    display: block;
+}
+
+.timeline-row {
+    padding-left: 50%;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-row .timeline-time {
+    position: absolute;
+    right: 50%;
+    top: 31px;
+    text-align: right;
+    margin-right: 20px;
+    color: #000000;
+    font-size: 1.5rem;
+}
+
+.timeline-row .timeline-time small {
+    display: block;
+    font-size: .8rem;
+    color: #8796af;
+}
+
+.timeline-row .timeline-content {
+    position: relative;
+    padding: 20px 30px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.timeline-row .timeline-content:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    height: 3px;
+    width: 40px;
+}
+
+.timeline-row .timeline-content:before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: -50px;
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    z-index: 100;
+    background: #ffffff;
+    border: 2px dashed #c4d2e2;
+}
+
+.timeline-row .timeline-content h4 {
+    margin: 0 0 20px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 150%;
+}
+
+.timeline-row .timeline-content p {
+    margin-bottom: 30px;
+    line-height: 150%;
+}
+
+.timeline-row .timeline-content i {
+    font-size: 2rem;
+    color: #ffffff;
+    line-height: 100%;
+    padding: 10px;
+    border: 2px solid #ffffff;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.timeline-row .timeline-content .thumbs {
+    margin-bottom: 20px;
+}
+
+.timeline-row .timeline-content .thumbs img {
+    margin-bottom: 10px;
+}
+
+.timeline-row:nth-child(even) .timeline-content {
+    background-color: #ff5000;
+    /* Fallback Color */
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fc6d4c), to(#ff5000));
+    /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #fc6d4c, #ff5000);
+    /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image: -moz-linear-gradient(top, #fc6d4c, #ff5000);
+    /* FF3.6 */
+    background-image: -ms-linear-gradient(top, #fc6d4c, #ff5000);
+    /* IE10 */
+    background-image: -o-linear-gradient(top, #fc6d4c, #ff5000);
+    /* Opera 11.10+ */
+    background-image: linear-gradient(top, #fc6d4c, #ff5000);
+    margin-left: 40px;
+    text-align: left;
+}
+
+.timeline-row:nth-child(even) .timeline-content:after {
+    left: -39px;
+    border-right: 18px solid #ff5000;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.timeline-row:nth-child(even) .timeline-content:before {
+    left: -50px;
+    right: initial;
+}
+
+.timeline-row:nth-child(odd) {
+    padding-left: 0;
+    padding-right: 50%;
+}
+
+.timeline-row:nth-child(odd) .timeline-time {
+    right: auto;
+    left: 50%;
+    text-align: left;
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.timeline-row:nth-child(odd) .timeline-content {
+    background-color: #5a99ee;
+    /* Fallback Color */
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#1379bb), to(#5a99ee));
+    /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #1379bb, #5a99ee);
+    /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image: -moz-linear-gradient(top, #1379bb, #5a99ee);
+    /* FF3.6 */
+    background-image: -ms-linear-gradient(top, #1379bb, #5a99ee);
+    /* IE10 */
+    background-image: -o-linear-gradient(top, #1379bb, #5a99ee);
+    /* Opera 11.10+ */
+    background-image: linear-gradient(top, #1379bb, #5a99ee);
+    margin-right: 40px;
+    margin-left: 0;
+    text-align: right;
+}
+
+.timeline-row:nth-child(odd) .timeline-content:after {
+    right: -39px;
+    border-left: 18px solid #1379bb;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+@media (max-width: 767px) {
+    .timeline {
+        padding: 15px 10px;
+    }
+    .timeline:after {
+        left: 28px;
+    }
+    .timeline .timeline-row {
+        padding-left: 0;
+        margin-bottom: 16px;
+    }
+    .timeline .timeline-row .timeline-time {
+        position: relative;
+        right: auto;
+        top: 0;
+        text-align: left;
+        margin: 0 0 6px 56px;
+    }
+    .timeline .timeline-row .timeline-time strong {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .timeline .timeline-row .timeline-icon {
+        top: 52px;
+        left: -2px;
+        margin-left: 0;
+    }
+    .timeline .timeline-row .timeline-content {
+        padding: 15px;
+        margin-left: 56px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    .timeline .timeline-row .timeline-content:after {
+        right: auto;
+        left: -39px;
+        top: 32px;
+    }
+    .timeline .timeline-row:nth-child(odd) {
+        padding-right: 0;
+    }
+    .timeline .timeline-row:nth-child(odd) .timeline-time {
+        position: relative;
+        right: auto;
+        left: auto;
+        top: 0;
+        text-align: left;
+        margin: 0 0 6px 56px;
+    }
+    .timeline .timeline-row:nth-child(odd) .timeline-content {
+        margin-right: 0;
+        margin-left: 55px;
+    }
+    .timeline .timeline-row:nth-child(odd) .timeline-content:after {
+        right: auto;
+        left: -39px;
+        top: 32px;
+        border-right: 18px solid #5a99ee;
+        border-left: inherit;
+    }
+    .timeline.animated .timeline-row:nth-child(odd) .timeline-content {
+        left: 20px;
+    }
+    .timeline.animated .timeline-row.active:nth-child(odd) .timeline-content {
+        left: 0;
+    }
+}
+
+.width-auto {
+    width: auto;
+}
+
+.text-lg {
+    font-size: 2rem;
+}
+
+.carousel-indicators li {
+    border: none;
+    background: #ccc;
+}
+
+.carousel-indicators li.active {
+    background: #28a745;
+}
+
+
+.centered {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+
+{% endblock %}
+
