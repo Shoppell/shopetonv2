@@ -1,4 +1,4 @@
-# Shopeton v1
+# Shopeton v2
 ## gettig started
 ### for installing projects requirements
 pip install -r requiremets.txt
