@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jl20@6**(ze)(8yj(tw_fnh1r2@@yj866$f=*x1=zwn%e9ci*-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['shopeton.ir']
+ALLOWED_HOSTS = ['shopeton.ir', '127.0.0.1']
 
 
 # Application definition
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 
     'azbankgateways',
 
-
+    'froala_editor',
     'django_cleanup.apps.CleanupConfig',
 
 
@@ -87,6 +87,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'shop.middleware.SaveIpAddressMiddleware',
 ]
 
 ROOT_URLCONF = 'shopeton.urls'
@@ -153,19 +154,19 @@ USE_TZ = False
 
 
 # for server
-STATIC_ROOT = '/home2/shopeton/public_html/static'
+# STATIC_ROOT = '/home2/shopeton/public_html/static'
 
 # for local
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 STATIC_URL = '/static/'
 
 # for server
-MEDIA_ROOT = '/home2/shopeton/public_html/media'
+# MEDIA_ROOT = '/home2/shopeton/public_html/media'
 
 # for local
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 

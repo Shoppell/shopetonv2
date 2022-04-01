@@ -1,8 +1,18 @@
+from dataclasses import field
 from django import forms
 from user_auth.models import User
-from blog.models import contact_with_us, Comment_shop, ticket, Comment
+from blog.models import contact_with_us, Comment_shop, ticket, Comment, blogModel
 
+class UpdateBlogForm(forms.ModelForm):
+    class Meta:
+        model = blogModel
+        fields = ['content', 'title', 'image']
         
+class AddBlogForm(forms.ModelForm):
+    class Meta:
+        model = blogModel
+        fields = ['content', 'title', 'image']
+
 class Contact(forms.ModelForm):
     class Meta:
         model = contact_with_us

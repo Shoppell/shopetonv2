@@ -29,7 +29,7 @@
         <div class="container">
         {% if danger_sale %}
               <h3 style="font-family: yekan;text-align: right">
-        بدون اضافه کردن بخش ها کالا قابل فروش نیست!
+        بدون اضافه کردن موجودی کالا قابل فروش نیست!
         </h3>
         </div>
             {% endif %}
@@ -42,7 +42,7 @@
 
               <div class="form-group" style="text-align:left">
                   <button class="btn btn-outline-success" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value="add">
-                        اضافه کردن بخش ها
+                     اضافه کردن موجودی 
                   </button>
 
                   <button class="btn btn-outline-warning" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value="change">
@@ -109,19 +109,29 @@
                         {% endif %}
                      {% if product.photo_6 %}
 
-                                  <div class="product-img">
+                        <div class="product-img">
                             <figure>
                                 <img src="{{ product.photo_6.url }}" alt=""  style="width: 540px;height: 630px;border-radius: 15px">
 
                             </figure>
                         </div>
                         {% endif %}
+
+                        {% for image in product_images %}
+                            <div class="product-img">
+                                <figure>
+                                    <img src="{{ image.image.url }}" alt=""  style="width: 540px;height: 630px;border-radius: 15px">
+
+                                </figure>
+                            </div>
+                        {% endfor %}
                     </div>
 
                 </div>
                 <div class="col-lg-6">
                     <div class="product-content">
                         <h2 style="font-family: yekan;text-align: right">
+{#                            {{ product.hits.count }}#}
                             {{ product.name }}
  
                             </h2>

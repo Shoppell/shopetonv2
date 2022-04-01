@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import Contact, ChangeProfile, RegisterTicket
+from .forms import Contact, ChangeProfile, RegisterTicket, AddBlogForm, UpdateBlogForm
 from shop.models import myshop, Product, wishlist
-from blog.models import ticket, SupCategory, Category
+from blog.models import blogModel, ticket, SupCategory, Category
 from user_auth.models import User
 from django.contrib.auth.decorators import login_required
 import logging
@@ -108,6 +108,87 @@ def all_views_navbar_utils(request):
             same_context['owner'] = owner
 
     return same_context
+
+@login_required(login_url='register')
+@just_owner
+def my_blogs(request):
+    my_shop = request.user.shop
+    blogs = my_shop.blogs
+    if request.method == 'POST':
+        if 'update' in request.POST:
+            pk = request.POST['update']
+            return redirect('update-blog', pk)
+        elif 'delete' in request.POST:
+            my_shop = request.user.shop
+            pk = request.POST['delete']
+            my_shop.blogs.get(pk=pk).delete()
+            return redirect('shop', my_shop.slug)
+
+    context = {
+
+            'blogs': blogs,
+    }
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
+    return render(request, 'blog/my_blogs.html', context)
+
+@login_required(login_url='register')
+@just_owner
+def add_blog(request):
+    me = User.objects.get(mobile=request.user.mobile)
+    my_shop = me.shop
+    shop = my_shop
+    if request.method == 'POST':
+        form = AddBlogForm(request.POST, request.FILES)
+        image = request.FILES['image']
+        title = request.POST.get('title')
+        user = request.user
+        
+        if form.is_valid():
+            content = form.cleaned_data['content']
+            
+            blog_obj = blogModel.objects.create(
+                    user = user , title = title, 
+                    content = content, image = image
+            )
+            return redirect('shop', shop.slug)
+            
+    else:
+        form = AddBlogForm()
+    context = {
+            'form': form,
+    }
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
+    return render(request, 'blog/add_blog.html', context)
+
+@login_required(login_url='register')
+@just_owner
+def update_blog(request, pk):
+    blog_instance = blogModel.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = UpdateBlogForm(request.POST, request.FILES, instance=blog_instance)
+        if form.is_valid():
+            form.save()
+            return redirect('shop', request.user.shop.slug)
+    else:
+        form = UpdateBlogForm(instance=blog_instance)
+    context = {
+            'form': form,
+    }
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
+    return render(request, 'blog/update_blog.html', context)
+
+
+def blog_detail(request, pk):
+    blog_in = blogModel.objects.get(pk=pk)
+    context_same = {
+          'blog': blog_in,
+    }
+    context = all_views_navbar_utils(request)
+    context.update(context_same)
+    return render(request, 'blog/blog_detail.html', context)
 
 
 def supcategory(request, pk):

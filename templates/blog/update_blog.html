@@ -1,0 +1,213 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+ 
+<div class="container mt-5">
+
+    <form method="post" class="mt-5 pt-5 mb-5 pb-5" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-12">
+                <label>Enter blog title</label>
+                <input type="text" class="form-control" placeholder="Enter title" name="title">
+            </div>
+
+            <div class="col-md-12">
+                {{form.media}}
+                {{form.as_p}}
+            </div>
+
+            <div class="col-md-12">
+
+                <input type="file" name="image" class="form-control" >
+                </div>
+
+        </div>
+
+        <button class="button-24" role="button" style="font-family: yekan;height: 30px;
+        padding-top: 0px;
+        padding-bottom: 0px;">
+         تغییر بده              
+        </button>
+
+    </form>
+
+</div>
+
+
+
+
+
+
+<style>
+
+
+body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    /* background: linear-gradient(80deg, #304FFE 50%, #EEEEEE 50%); */
+
+}
+
+.card0 {
+    box-shadow: 0px 4px 8px 0px #757575;
+    border-radius: 10px
+}
+
+.card1 {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px
+}
+
+.logo {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 25px
+}
+
+.image {
+    width: 300px;
+    height: 300px
+}
+
+.card2 {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px
+}
+
+.login {
+    cursor: pointer
+}
+
+.fa-google {
+    background-color: #fff;
+    color: #df4b37;
+    padding: 10px 12px;
+    font-size: 20px
+}
+
+.fa-facebook {
+    background-color: #fff;
+    color: #3b5998;
+    padding: 10px 15px;
+    font-size: 20px
+}
+
+.google {
+    background-color: #df4b37;
+    color: #fff;
+    padding: 3px 0px 3px 3px;
+    border-radius: 2px;
+    cursor: pointer
+}
+
+.fb {
+    background-color: #3b5998;
+    color: #fff;
+    padding: 3px 0px 3px 3px;
+    border-radius: 2px;
+    cursor: pointer
+}
+
+.line {
+    height: 1px;
+    width: 45%;
+    background-color: #E0E0E0;
+    margin-top: 10px
+}
+
+.or {
+    width: 10%
+}
+
+.text-sm {
+    font-size: 14px !important
+}
+
+input,
+textarea {
+    padding: 10px 12px 10px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: #ECEFF1
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #304FFE;
+    outline-width: 0
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.btn-blue {
+    background-color: #304FFE;
+    width: 100%;
+    color: #fff;
+    border-radius: 6px
+}
+
+.btn-blue:hover {
+    background-color: #0D47A1;
+    cursor: pointer
+}
+
+@media screen and (max-width: 991px) {
+    .card1 {
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 10px
+    }
+
+    .card2 {
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 0px
+    }
+}
+
+.card-img-left {
+  width: 45%;
+  /* Link to your background image using in the property below! */
+
+  background-size: cover;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+.btn-google {
+  color: white !important;
+  background-color: #ea4335;
+}
+
+.btn-facebook {
+  color: white !important;
+  background-color: #3b5998;
+}
+
+
+    </style>
+{% endblock %}

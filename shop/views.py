@@ -50,6 +50,46 @@ def help_video(request):
     context = all_views_navbar_utils(request)
     return render(request, 'blog/help.html', context)
 
+@login_required(login_url='register')
+@just_owner
+def my_statistics(request):
+    my_shop = request.user.shop
+    products = my_shop.products.all()
+    context = {
+        'products': products,
+        'shop': my_shop,
+    }
+    context_same = all_views_navbar_utils(request)
+    context.update(context_same)
+    return render(request, 'shop/my_statistics.html', context)
+
+
+@login_required(login_url='register')
+@just_owner
+def my_products(request):
+    my_shop = request.user.shop
+    products = my_shop.products.all()
+    if request.method == 'POST':
+        if 'update' in request.POST:
+            pk = request.POST['update']
+            return redirect('update_product', pk)
+        elif 'delete' in request.POST:
+            my_shop = request.user.shop
+            pk = request.POST['delete']
+            my_shop.products.get(pk=pk).delete()
+            return redirect('shop', my_shop.slug)
+        elif 'add' in request.POST:
+            pk = request.POST['add']
+            return redirect('add_product_choice', my_shop.slug, pk)
+
+    context = {
+        'products': products,
+        'shop': my_shop,
+    }
+    context_same = all_views_navbar_utils(request)
+    context.update(context_same)
+    return render(request, 'shop/my_products.html', context)
+
 
 def all_products(request, slug):
     shop = myshop.objects.get(slug=slug)
@@ -114,6 +154,11 @@ def shop(request, slug):
         else:
             add_comment = True
     comments = comments[0:10]
+    blogs = shop.blogs.all()[0:8]
+
+    ip_address = request.user.ip_address
+    if ip_address not in shop.hits.all():
+        shop.hits.add(ip_address)
 
     context = {
         'products': products_shop,
@@ -123,6 +168,7 @@ def shop(request, slug):
         'form': form,
         'rare': rare,
         'hot': hot,
+        'blog': blogs,
         'off': off,
     }
     if request.user.is_authenticated:
@@ -363,6 +409,11 @@ def product_details(request, slug, pk):
     if product_details.photo_6:
         num_photos += 1
     any = True
+
+    ip_address = request.user.ip_address
+    if ip_address not in product_details.hits.all():
+        product_details.hits.add(ip_address)
+
     context = {
                 'danger_sale': danger_sale,
                 'own': own,
@@ -379,6 +430,7 @@ def product_details(request, slug, pk):
                 'left_list': left_list,
                 'shop': shop,
                 'add_comment': add_comment,
+        
     }
     context_sample = all_views_navbar_utils(request)
     context.update(context_sample)

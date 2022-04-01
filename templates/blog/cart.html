@@ -47,7 +47,7 @@
                                                         <form method="POST" action="{% url 'cart' %}">
                                                     {% csrf_token %}
                                                         <div class="form-group" style="margin: auto">
-                                                            <button class="btn btn-outline-danger" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value={{ x.pk }}>
+                                                            <button class="btn btn-outline-danger" type="submit"  style="font-family: yekan;font-size: 16px" name="action"          pk = request.POST['action']>
                                                                 پاک کن
 
                                                             </button>

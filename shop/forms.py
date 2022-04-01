@@ -68,11 +68,11 @@ class Wishlist(forms.ModelForm):
 class Updateproduct(forms.ModelForm):
     class Meta:
         model = Product
-        exclude = ['user', 'count_out_stock', 'stars']
+        exclude = ['user', 'count_out_stock', 'stars', 'off']
 
 
 class ProductCreateForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        exclude = ['user', 'inventory', 'count_out_stock', 'stars', 'stars_left', 'star_rate']
+        exclude = ['user', 'inventory', 'count_out_stock', 'stars', 'stars_left', 'star_rate', 'off']

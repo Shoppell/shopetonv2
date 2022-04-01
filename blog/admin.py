@@ -1,6 +1,7 @@
 from django.contrib import admin
-from blog.models import Comment, contact_with_us, Comment_shop, ticket, Category, SupCategory
+from blog.models import Comment, contact_with_us, Comment_shop, ticket, Category, SupCategory, blogModel
 
+admin.site.register(blogModel)
 admin.site.register(Category)
 admin.site.register(SupCategory)
 admin.site.register(Comment)

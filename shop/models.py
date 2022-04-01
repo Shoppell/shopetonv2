@@ -42,7 +42,6 @@ choices_post = (
     ('کالا تحویل پست داده شد', 'کالا تحویل پست داده شد'),
 )
 
-
 choices_rate = (
     (1, 1),
     (2, 2),
@@ -54,11 +53,19 @@ choices_rate = (
 from PIL import Image
 from persian_tools import digits, separator
 
+
 def resize(nameOfFile):
     img = Image.open(nameOfFile)
     size = (200, int(img.size[1] * 200 / img.size[0]))
     img.resize(size, Image.ANTIALIAS).save(nameOfFile)
     img.save(nameOfFile)
+
+
+class IPAddress(models.Model):
+    ip_address = models.GenericIPAddressField()
+
+    def __str__(self):
+        return self.ip_address
 
 
 class Product_Choice(models.Model):
@@ -79,7 +86,8 @@ class Product(models.Model):
     photo_5 = models.ImageField(upload_to='products', blank=True, verbose_name='عکس پنجم کالا')
     photo_6 = models.ImageField(upload_to='products', blank=True, verbose_name='عکس ششم کالا')
     price = models.IntegerField(verbose_name='قیمت کالا| بدون تخفیف')
-    off = models.PositiveIntegerField(verbose_name='تخفیف')
+    last_price = models.IntegerField(verbose_name='قیمت کالا| با تخفیف')
+    off = models.PositiveIntegerField(blank=True, verbose_name='تخفیف')
     details = models.TextField(verbose_name='درباره ی کالا')
     category = models.ForeignKey(to='blog.Category', on_delete=models.CASCADE, verbose_name='دسته ی کالا')
     date = models.DateTimeField(auto_now_add=True, verbose_name='زمان ساخت کالا')
@@ -94,26 +102,23 @@ class Product(models.Model):
     product_choice = models.ManyToManyField(Product_Choice, blank=True)
     modified = models.DateTimeField(auto_now=True, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    hits = models.ManyToManyField(IPAddress, blank=True, related_name="hitsproduct", verbose_name="بازدید ها")
 
     def save(self, *args, **kwargs):
+        off_product = int((1-(self.last_price/self.price))*100)
+        self.off = off_product
         for x in [self.photo, self.photo_2, self.photo_3, self.photo_4, self.photo_5, self.photo_6]:
             if x:
                 super().save(*args, **kwargs)
                 resize(x.path)
 
-    def last_price(self):
-        english_number = (100-self.off)*self.price/100
-        persian_number = round(float(digits.convert_to_fa(english_number)))
-        return persian_number
-        
     def price_comma(self):
         persian_number = digits.convert_to_fa(self.price)
         persian_number = separator.add(persian_number)  
         return persian_number
     
     def last_comma(self):
-        lprice = int((100-self.off)*self.price/100)
-        persian_number = digits.convert_to_fa(lprice) 
+        persian_number = digits.convert_to_fa(self.last_price)
         persian_number = separator.add(persian_number) 
         return persian_number
 
@@ -144,7 +149,6 @@ class myshop(models.Model):
     image_banner1 = models.ImageField(blank=True, upload_to="shops.banner", verbose_name='عکس بنر اول')
     image_banner2 = models.ImageField(blank=True, upload_to="shops.banner", verbose_name='عکس بنر دوم')
     image_banner3 = models.ImageField(blank=True, upload_to="shops.banner", verbose_name='عکس بنر سوم')
-    image_look = models.ImageField(blank=True, upload_to="shops.look", verbose_name='عکس پوستر')
     title_look = models.CharField(blank=True, max_length=50, verbose_name='عنوان پوستر')
     description_look = models.TextField(blank=True, verbose_name='توضیحات پوستر')
     h_index = models.IntegerField(default=0, verbose_name='رتبه ی فروشگاه')
@@ -159,10 +163,12 @@ class myshop(models.Model):
     bank_account = models.CharField(max_length=16)
     modified = models.DateTimeField(auto_now=True, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    blogs = models.ManyToManyField(to='blog.blogModel', blank=True)
+    hits = models.ManyToManyField(IPAddress, blank=True, related_name="hits", verbose_name="بازدید ها")
 
 
     def save(self, *args, **kwargs):
-        for x in [self.image_head1, self.image_banner1, self.image_banner2, self.image_banner3, self.image_look]:
+        for x in [self.image_head1, self.image_banner1, self.image_banner2, self.image_banner3]:
             if x:
                 super().save(*args, **kwargs)
                 resize(x.path)
@@ -196,3 +202,4 @@ class wishlist(models.Model):
 
     def __str__(self):
         return self.buyer.mobile+str(self.shop)
+

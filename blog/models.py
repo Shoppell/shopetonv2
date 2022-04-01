@@ -1,8 +1,9 @@
+from statistics import mode
 from django.db import models
 from extensions.utils import jalali_converter
 from django.utils import timezone
 from shop.models import Product, myshop
-
+from froala_editor.fields import FroalaField
 
 choices_rate = (
     (1, 1),
@@ -98,3 +99,15 @@ class ticket(models.Model):
 
     def __str__(self):
         return self.user.mobile+" "+self.title
+
+
+class blogModel(models.Model):
+    title = models.CharField(max_length=1000)
+    content = FroalaField()
+    user = models.ForeignKey(to='user_auth.User', blank=True , null=True , on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='blogs_image')
+    modified = models.DateTimeField(auto_now=True, null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    def __str__(self):
+        return self.title + ' ' + self.user.mobile

@@ -25,3 +25,4 @@ aiohttp
 asyncio
 django-cleanup
 persian-tools
+django-froala-editor
