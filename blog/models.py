@@ -3,6 +3,7 @@ from extensions.utils import jalali_converter
 from django.utils import timezone
 from shop.models import Product, myshop
 
+
 choices_rate = (
     (1, 1),
     (2, 2),
