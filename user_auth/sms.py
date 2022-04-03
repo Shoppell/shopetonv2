@@ -75,3 +75,11 @@ def commodity_registration_error(mobile, link1):
     to = mobile
     bodyId = 80086
     sms_rest.send_by_base_number(text, to, bodyId)
+    
+    
+def charging_shopaccount(mobile, text1):
+    sms_rest = api.sms()
+    text = [text1]
+    to = mobile
+    bodyId = 81020
+    sms_rest.send_by_base_number(text, to, bodyId)
